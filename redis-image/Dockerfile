@@ -3,6 +3,7 @@ FROM alpine
 
 # Download and install a dependency
 RUN apk add --update redis
+RUN apk add gcc
 
 # Tell the image what todo when it starts as a container
 CMD [ "redis-server" ]

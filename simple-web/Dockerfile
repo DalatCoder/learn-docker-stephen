@@ -8,8 +8,10 @@ WORKDIR /usr/app
 # Install some dependencies
 # Copy all file from current working directory into
 # current directory inside the container (/usr/app)
-COPY . .
+COPY ./package.json ./
 RUN npm install
+
+COPY ./ ./
 
 # Default command
 CMD ["npm", "start"]

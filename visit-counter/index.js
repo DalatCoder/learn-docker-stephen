@@ -1,6 +1,5 @@
 const express = require('express');
 const redis = require('redis');
-const process = require('process');
 
 const app = express();
 const client = redis.createClient({
@@ -12,7 +11,6 @@ const client = redis.createClient({
 client.set('visits', 0);
 
 app.get('/', (req, res) => {
-  process.exit(0);
   client.get('visits', (err, visits) => {
     if (err) {
       return res.send('Sorry! Something went wrong! 😢');
